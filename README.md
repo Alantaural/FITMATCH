@@ -2,6 +2,9 @@ Sistema Web FitMatch: Gestión de Rutinas de Ejercicio Personalizadas
 1. Introducción
 Bienvenido al sistema web FitMatch. Esta aplicación está diseñada para ayudar a los usuarios a crear, gestionar y visualizar sus rutinas de ejercicio personalizadas de una manera sencilla e intuitiva. Ideal para entusiastas del fitness, entrenadores personales o cualquier persona que busque organizar su entrenamiento.
 
+
+
+
 2. Resumen del Sistema
 FitMatch es una aplicación web que permite a los usuarios autenticarse para acceder a funcionalidades de gestión de rutinas. El sistema proporciona una interfaz amigable para:
 
@@ -12,6 +15,10 @@ Visualizar rutinas existentes: Acceder y revisar las rutinas guardadas.
 Gestión de usuarios: Registro e inicio de sesión para asegurar la privacidad y personalización de las rutinas.
 
 El objetivo principal es ofrecer una herramienta eficiente para que los usuarios mantengan un registro estructurado y accesible de sus planes de entrenamiento.
+
+
+
+
 
 3. Requisitos
 a. Requisitos Funcionales y No Funcionales
@@ -87,6 +94,10 @@ La interacción se realiza a través de PHP utilizando la extensión mysqli para
 
 La comunicación entre el frontend y el backend se realiza a través de peticiones HTTP/HTTPS (GET, POST, DELETE) que envían y reciben datos en formato JSON.
 
+
+
+
+
 2. Instalación (Configuración del Entorno de Desarrollo)
 Para poner en marcha FitMatch en tu entorno de desarrollo local, sigue estos pasos:
 
@@ -148,6 +159,10 @@ Abre tu navegador.
 
 Navega a la URL de tu proyecto: http://localhost/fitmatch_app/ (o http://localhost:8080/fitmatch_app/ si configuraste Apache en el puerto 8080).
 
+
+
+
+
 3. Uso del Sistema
 Flujo de Usuario Básico:
 Acceso Inicial: Al acceder a la aplicación, si no hay una sesión activa, se presentará la interfaz de "Iniciar Sesión" y "Registrarse".
@@ -187,6 +202,11 @@ Cerrar Sesión:
 En la parte superior de la interfaz, junto a tu nombre de usuario, encontrarás el botón "Cerrar Sesión".
 
 Haz clic en este botón para finalizar tu sesión activa, borrar los datos de sesión del navegador y regresar a la pantalla de inicio de sesión.
+
+
+
+
+
 
 4. Base de Datos (Modelado)
 El sistema FitMatch utiliza una base de datos fitmatch en MySQL, organizada en cuatro tablas principales relacionadas entre sí:
@@ -241,28 +261,11 @@ Descripcion (VARCHAR(200)): Descripción personal del usuario.
 
 Imagen_Perfil (VARCHAR(50)): URL o nombre de archivo de la imagen de perfil del usuario.
 
-Diagrama Entidad-Relación (Conceptual):
-
-+-----------+            +----------+           +-----------------+          +-----------+
-|  usuarios |            |  rutinas |           |  ejercicios     |          | rutina_ej |
-+-----------+            +----------+           +-----------------+          +-----------+
-| Id_Usuario| PK ------< | Id_Usuario |FK       | Id_Ejercicio| PK ---<     | Id_Ejercicio|FK
-| Nombre    |            | Id_Rutina  |PK-------| Musculo_Objetivo|         | Id_Rutina   |FK
-| Correo    | UNIQUE     | Nombre     |         | Nombre_Ejercicio|         | Series      |
-| Contra    |            | Descripcion|         +-----------------+         | Repeticiones|
-| Descripcion|           +----------+                                       | Factor_Intensidad|
-| Imagen_Perfil|                                                            | Calentamiento|
-+-----------+                                                               | Orden       |
-                                                                             +-----------+
-
-Relaciones:
-- Un usuario puede crear muchas rutinas (1:N de usuarios a rutinas).
-- Una rutina puede contener muchos ejercicios, y un ejercicio puede estar en muchas rutinas (N:M entre rutinas y ejercicios, resuelta por rutina_ejercicios).
-
-
 
 Archivo SQL de la Base de Datos:
 El script SQL completo para la creación de la base de datos y sus tablas, incluyendo los datos iniciales de ejercicios, se encuentra en el archivo.sql.zip
+
+
 
 5. Mantenimiento y Actualizaciones
 Copias de Seguridad: Es fundamental realizar copias de seguridad periódicas de la base de datos (fitmatch) para prevenir la pérdida de datos.
@@ -274,6 +277,10 @@ Gestión de Contenido: Actualizar la lista de ejercicios en la tabla ejercicios 
 Optimización del Código: Realizar refactorización del código PHP y JavaScript para mejorar la legibilidad, la eficiencia y la modularidad a medida que la aplicación crece.
 
 Monitoreo de Errores: Implementar un sistema de registro de errores (logging) en el backend de PHP para facilitar la depuración y el mantenimiento.
+
+
+
+
 
 6. Pruebas
 Para asegurar la calidad y funcionalidad del sistema, se recomienda realizar los siguientes tipos de pruebas:
@@ -315,6 +322,11 @@ Pruebas de Responsividad:
 Verificar que la interfaz se adapta y es funcional en diferentes tamaños de pantalla (escritorio, tablet, móvil) y orientaciones.
 
 Pruebas de Rendimiento (Carga): (Opcional) Simular múltiples usuarios realizando operaciones para evaluar la capacidad de respuesta del servidor bajo carga.
+
+
+
+
+
 
 Autores: Alcántara Angulo Justin Ismael, Briseño Escobar Alan Tristan, Sauceda Espinoza Adán Alfonso, Solar Rodríguez José Manuel, Vazquez Larreta Paul Alberto.
 
